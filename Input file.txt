@@ -1,0 +1,129 @@
+Input file for prolog assignment
+
+//predicate 1
+Q.salary('Senator',ToPay,WhoDecides,HowMuch).
+R.ToPay = 'U.S. Treasury',
+  WhoDecides = 'Themselves',
+  HowMuch = 'Whatever was decided in last term' ;
+  false.
+
+Q.salary('Computer Scientist',ToPay,WhoDecides,HowMuch).
+R.ToPay = 'Their employer',
+  WhoDecides = 'As decided in their contract',
+  HowMuch = 'Whatever the contract between them and their employer says' ;
+  false.
+
+
+
+
+
+
+//predicate 2
+Q.arrest('Senator','Collusion','Park',Conclusion).
+R.Conclusion = 'Yes' ;
+  false.
+
+Q.arrest('Senator','Collusion','In Session',Conclusion).
+R.Conclusion = 'No' ;
+  false.
+
+Q.arrest('Teacher','Collusion','Hospital',Conclusion).
+R.Conclusion = 'Yes'.
+
+
+
+
+
+
+//predicate 3
+Q.bill(Type,WorkofPresident,Time,PossibleOrigin,WorkofHousesBefore,WorkofHouseAfter,Conclusion).
+R.Conclusion = 'There are three kinds of bills :- Revenue, Non-Revenue, Resolution.Revenue bills only originate in the House of Representatives. The senate can only suggest changes but it has to ultimately pass the bill.Non-Revenue bills can originate in either house.They are passed to the president who is given 10 days to Sign it or Veto it. If he signs it then the bill becomes a law. If he does nothing within 10 days then also the bill becomes a law. If he Vetoes it then he returns it the house where the bill originated with his recommended changes which put the (changed)bill again to vote. If 2/3rd of Representatives vote in its favour then it goes to the next house. If the other house also has 2/3rd of its Representatives in favour then the bill becomes a law.Resolutions are special bills where if the bill gets more than 2/3rd of majority in both houses then it becomes law without the need of the president.' ;
+  false.
+
+Q.bill('Revenue',WorkofPresident,Time,PossibleOrigin,WorkofHousesBefore,WorkofHouseAfter,Conclusion).
+R.Conclusion = 'Revenue bills only originate in the House of Representatives. The senate can only suggest changes but it has to ultimately pass the bill.They are passed to the president who is given 10 days to Sign it or Veto it. If he signs it then the bill becomes a law. If he does nothing within 10 days then also the bill becomes a law. If he Vetoes it then he returns it the house where the bill originated with his recommended changes which put the (changed)bill again to vote. If 2/3rd of Representatives vote in its favour then it goes to the next house. If the other house also has 2/3rd of its Representatives in favour then the bill becomes a law.' ;
+  false.
+
+Q.bill('Non-Revenue','Veto',6,PossibleOrigin,WorkofHousesBefore,WorkofHouseAfter,Conclusion).
+R.PossibleOrigin = ['House of Representatives', 'Senate'],
+  WorkofHousesBefore = 'Pass the Bill',
+  WorkofHouseAfter = 'Reconsider changes and revote on Bill',
+  Conclusion = 'If 2/3rd of both houses pass it then Bill becomes Law irrespective of signature of the president' ;
+  false.
+
+
+
+
+
+
+//predicate 4
+Q.congressfundingOperation('weapons research',DurationYrs).
+R.DurationYrs = 'Military operations like these can be funded for a duration of only 2 yrs or less'
+
+Q.congressfundingOperation('Dam Project',DurationYrs).
+R.DurationYrs = 'non military operations can be funded for any period of time'
+
+Q.congressfundingOperation('military operation',3).
+R.false.
+
+
+
+
+
+//predicate 5
+Q.generateRevenueMethod(R).
+R.Method = 'collect taxes' ;
+  Method = 'borrow on credit of US' ;
+  Method = 'mint money' ;
+  Method = 'collect duties and excises' ;
+  Method = 'regulate interstate trade' ;
+
+Q.generateRevenueMethod('collect duties and excises').
+R.true
+
+
+
+
+
+
+//predicate 6
+Q.job(senator,legoffice,'during term',true,CanGetJob).
+R.CanGetJob = 'No they cant get this job' ;
+
+Q.job(senator,civiloffice,'during term',flase,CanGetJob).
+R.CanGetJob = 'No they cant get this job'
+
+Q.job(Who,civiloffice,'during term',false,CanGetJob).
+R.Who = me,
+CanGetJob = 'Yes they can get this job' ;
+Who = avgworker,
+CanGetJob = 'Yes they can get this job' ;
+Who = senator,
+CanGetJob = 'No they cant get this job' ;
+Who = representative,
+CanGetJob = 'No they cant get this job' ;
+Who = joe_biden,
+CanGetJob = 'No they cant get this job' ;
+Who = patrick_leahy,
+CanGetJob = 'No they cant get this job' ;
+Who = richard_shelby,
+CanGetJob = 'No they cant get this job' ;
+Who = lisa_murkowski,
+CanGetJob = 'No they cant get this job' ;
+false.
+
+
+
+
+
+
+
+//predicate 7
+Q.hasPower(congress,'To borrow Money on the credit of the United States;',HasPowerBool).
+R.HasPowerBool = yes
+
+Q.hasPower(congress,'To strike down if necessary, a law as unconstitutional;',HasPowerBool).
+R.HasPowerBool = 'no these powers are vested with the judiciary'
+
+Q. hasPower(judiciary,'To wage war at the direction of Congress',HasPowerBool).
+R.HasPowerBool = 'no these powers are vested with the executive'
